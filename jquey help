@@ -1,0 +1,86 @@
+Received 1 or 2 Value form database and check box onClick after show same data and hide same data
+=================================================================================================
+                            if(response.customer_type_id == 1){
+                                console.log(customer_type_id);
+                                $('#regular').prop('checked',true);
+                                $('#targetAmount').show();
+                                $('#regularDiscount').show();
+                                $('#targetDiscount').show();
+                            } 
+                            else if(response.customer_type_id == 2){
+                                console.log(customer_type_id); 
+                                $('#wholesale').prop('checked',true);
+                                $('#targetAmount').slideUp();
+                                $('#regularDiscount').slideUp();
+                                $('#targetDiscount').slideUp(); 
+                                $('#storeName').slideDown(); 
+                                
+                            }
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+OnClick Prop hide same data and view same data
+================================================
+            $(document).ready(function () {
+                $("#regular").prop("checked",true);
+//                $('#storeName').hide('', function() {
+//                     $('#storeName').slideUp();
+//                });
+                $('#currentAdminForm input').on('change', function(e) {
+                    e.preventDefault(e);
+                    // Get the record's ID via attribute  
+                    //var customer = $('input[name=customer]:checked', '#currentAdminForm').attr('data-value');
+                    $('#pharmacy_name').on
+                    var customer = $("input[name=customer_id]").prop( "checked" );
+                    if(customer == true){
+                        console.log(customer);
+                        $('#targetAmount').slideDown();
+                        $('#regularDiscount').slideDown();
+                        $('#targetDiscount').slideDown();
+                        $('#storeName').slideUp();
+                    } 
+                    else if(customer == false){
+                        console.log(customer);
+                        $('#pharmacy_name').show();
+                        $('#storeName').slideDown();
+                        $('#targetAmount').slideUp();
+                        $('#regularDiscount').slideUp();
+                        $('#targetDiscount').slideUp(); 
+                    }
+/*
+                    else if(type =='WalkIn'){
+
+                        console.log(type);
+
+                        $('#tamount').hide();
+                        
+
+                        $('#cregular').hide();
+
+                        $('#tdiscount').hide();  
+                        $('#storeneme').hide();  
+
+                    }*/
+
+                });
+
+            });                               
+ 
+ 
+ Checkox Checked after work
+==============================================   
+$('input[type=checkbox]').on('click', function(event) {
+		event.preventDefault();
+		if($('input[type=checkbox]:checked').length === 1 && $(this).is(':checked')) {
+				return false; 
+                // there is only one checked AND the checked one is $this and we want to prevent it from uncheck
+		} else {
+			$(this).prop('checked', true);
+			alert($(this).prop('checked')); // this return true
+		} 
+
+	});
